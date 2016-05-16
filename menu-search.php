@@ -45,11 +45,22 @@ class MenuSearch
 		global $menu, $submenu;
 		$new_menu = array();
 		foreach( $menu as $menu_item ) :
+			$menu_item[0] = strip_tags( $menu_item[0] );
+			$menu_mil = array(
+				'menu_name' => $menu_item[0],
+				'menu_id' 	=> $menu_item[5]
+			);
+
 			if( !empty( $submenu[ $menu_item[2] ] ) ) :
-				foreach ( $submenu[ $menu_item[2] ] as $key => $sub ) $submenu[ $menu_item[2] ][ $key ][0] = strip_tags( $sub[0] );
-				$menu_item[ 'sub_menu' ] = $submenu[ $menu_item[2] ];
+				$menu_mil[ 'sub_menu' ] = array();
+				foreach ( $submenu[ $menu_item[2] ] as $key => $sub ) {
+					$sub_menu_mil = array(
+						'menu_name' => strip_tags( $sub[0] )
+					);
+					array_push( $menu_mil[ 'sub_menu' ], $sub_menu_mil );
+				}
 			endif;
-			array_push( $new_menu, $menu_item );
+			if( !empty( $menu_mil['menu_name']) ) array_push( $new_menu, $menu_mil );
 		endforeach;
 		return json_encode( $new_menu );
 	}
