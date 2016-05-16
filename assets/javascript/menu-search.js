@@ -15,12 +15,22 @@
 					$('.wp-menu-separator').hide();
 					$( '#'+menu_id ).hide();
 					$( '#'+menu_id ).addClass( 'under_search' );
+					var found = false;
 					if( val['menu_name'].toLowerCase().indexOf( to_find_mil ) != -1 ) {
+						found = true;
+					}
+					if( !found ) {
+						$.each( val['sub_menu'] , function( sub_i,sub_val ) {
+							if( sub_val['menu_name'].toLowerCase().indexOf( to_find_mil ) != -1 ) {
+								found = true;
+							}
+						});
+					}
+					if( found ) {
 						$( '#'+menu_id ).removeClass('under_search');
 						$( '#'+menu_id ).show();
 					}
-					if( $( '.under_search' ).length == 0 )
-						$('.wp-menu-separator').show();
+					if( $( '.under_search' ).length == 0 ) $('.wp-menu-separator').show();
 				});
 			});
 		}
