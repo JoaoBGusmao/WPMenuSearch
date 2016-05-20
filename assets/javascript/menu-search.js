@@ -6,6 +6,7 @@
 		init: function(){
 			this.input_listen();
 			this.btn_listen();
+			this.menu_listen();
 		},
 		input_listen : function() {
 			$( '.menu-search' ).on('keyup', function() {
@@ -50,7 +51,26 @@
 				$( '#collapse-menu' ).trigger('click');
 				$( '.menu-search-wrapper input.menu-search' ).focus();
 			});
-		}
+		},
+		menu_listen : function() {
+			$( '#adminmenuwrap' ).on('mouseenter', function(event) {
+				var keydown_event = null;
+
+				$(window).one('keydown', function(event) {
+					keydown_event = event;
+
+					if ( ! $( 'input' ).is(":focus") ) {
+						//event.preventDefault();
+						console.log(event);
+						$( '.menu-search-wrapper input.menu-search' ).focus();
+					}
+				});
+
+				$( '#adminmenuwrap' ).on('mouseleave', function(event) {
+					$(window).off(keydown_event);
+				});
+			});
+		},
 	};	
 
 	App.init();
