@@ -42,7 +42,7 @@ class MenuSearch
 		<input type="hidden" class="full_menus" value='<?php echo self::_build_menus(); ?>' />
 		<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-search menu-search-wrapper hide-if-no-js">
 			<div class="wp-menu-image menu-search-icon dashicons-before dashicons-search"><br></div>
-			<input class="menu-search" type="text" placeholder="Search...">
+			<input class="menu-search" type="text" placeholder="<?php esc_attr_e( 'Search' ) ?>">
 		</li>
 	<?php
 	}
