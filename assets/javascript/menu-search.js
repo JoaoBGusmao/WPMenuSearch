@@ -53,7 +53,7 @@
 			});
 		},
 		menu_listen : function() {
-			$( '#adminmenuwrap' ).on('mouseenter', function(event) {
+			$( '#adminmenumain' ).on('mouseenter', function(event) {
 				var keydown_event = null;
 
 				$(window).one('keydown', function(event) {
@@ -64,7 +64,7 @@
 					}
 				});
 
-				$( '#adminmenuwrap' ).on('mouseleave', function(event) {
+				$( '#adminmenumain' ).on('mouseleave', function(event) {
 					$(window).off(keydown_event);
 				});
 			});
