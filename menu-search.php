@@ -53,9 +53,10 @@ class MenuSearch
 		$new_menu = array();
 		foreach( $menu as $menu_item ) :
 			$menu_item[0] = strip_tags( $menu_item[0] );
+			$menu_id = ! empty( $menu_item[5] ) ? $menu_item[5] : 'wp-search-no-id';
 			$menu_mil = array(
 				'menu_name' => $menu_item[0],
-				'menu_id' 	=> $menu_item[5]
+				'menu_id' 	=> $menu_id
 			);
 
 			if( !empty( $submenu[ $menu_item[2] ] ) ) :
