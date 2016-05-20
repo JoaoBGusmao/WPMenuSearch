@@ -60,8 +60,6 @@
 					keydown_event = event;
 
 					if ( ! $( 'input' ).is(":focus") ) {
-						//event.preventDefault();
-						console.log(event);
 						$( '.menu-search-wrapper input.menu-search' ).focus();
 					}
 				});
