@@ -7,6 +7,13 @@ Tested and Working with:
 * WordPress 4.5.*
 
 ### Installation
+
+Move to your WordPress plugin's folder:
+
+```sh
+$ cd /WordPress-location/wp-content/plugins/
+```
+Clone the repository:
 ```sh
 $ git clone https://github.com/JoaoBGusmao/WPMenuSearch.git
 ```
