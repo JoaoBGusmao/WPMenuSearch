@@ -5,6 +5,7 @@
 	var App = {
 		init: function(){
 			this.input_listen();
+			this.btn_listen();
 		},
 		input_listen : function() {
 			$( '.menu-search' ).on('keyup', function() {
@@ -32,6 +33,22 @@
 					}
 					if( $( '.under_search' ).length == 0 ) $('.wp-menu-separator').show();
 				});
+			});
+
+			$( '.menu-search').on('focusin', function(event) {
+				event.preventDefault();
+				$( '.menu-search-wrapper' ).addClass('fixed-on-bottom');
+			});
+
+			$( '.menu-search').on('focusout', function(event) {
+				event.preventDefault();
+				$( '.menu-search-wrapper' ).removeClass('fixed-on-bottom');
+			});
+		},
+		btn_listen : function() {
+			$( '.menu-search-icon' ).on('click', function() {
+				$( '#collapse-menu' ).trigger('click');
+				$( '.menu-search-wrapper input.menu-search' ).focus();
 			});
 		}
 	};	

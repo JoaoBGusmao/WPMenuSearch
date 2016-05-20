@@ -26,16 +26,23 @@ class MenuSearch
 			plugins_url( 'assets/javascript/menu-search.js', __FILE__ ), 
 			array('jquery'), 
 			'1.0.0', 
-			true 
-		);	 
+			true
+		);
+		wp_enqueue_style( 
+			'menu-search-sctyle', 
+			plugins_url( 'assets/css/menu-search.css', __FILE__ ),
+			array(), 
+			'1.0.0'
+		);
  	}
 
 	public function create_menu_search()
 	{
 	?>
 		<input type="hidden" class="full_menus" value='<?php echo self::_build_menus(); ?>' />
-		<li id="collapse-menu" class="hide-if-no-js" style="position: fixed;bottom: 0;background: #32373C;width: 160px;">
-			<input class='menu-search' type="text" placeholder="Search..." style="width: 96%;background: #32373C;border: 1px solid #797979;border-radius: 1px;margin-left: 3px;color: #9CA1A6;">
+		<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-search menu-search-wrapper hide-if-no-js">
+			<div class="wp-menu-image menu-search-icon dashicons-before dashicons-search"><br></div>
+			<input class="menu-search" type="text" placeholder="Search...">
 		</li>
 	<?php
 	}
