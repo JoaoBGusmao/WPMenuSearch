@@ -1,1 +1,3 @@
-<?php //Silêncio é ouro ?>
+<?php 
+//SilÃªncio Ã© ouro
+?>
