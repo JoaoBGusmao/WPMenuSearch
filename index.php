@@ -1,0 +1,1 @@
+<?php //Silêncio é ouro ?>

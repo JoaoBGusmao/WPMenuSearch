@@ -1,7 +1,11 @@
+#collapse-menu {
+	margin-bottom: 35px !important;
+}
 .menu-search-wrapper {
 	position: fixed!important;
 	bottom: 0;
 	width: 160px;
+	z-index: 3;
 }
 
 .menu-search-wrapper input.menu-search {
